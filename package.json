@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/aleksandrtamrazov/backend-project-lvl2#readme",
   "dependencies": {
-    "commander": "8.2.0"
+    "commander": "8.2.0",
+    "fs": "^0.0.1-security",
+    "lodash.sortby": "^4.7.0",
+    "lodash.uniq": "^4.5.0"
   }
 }
