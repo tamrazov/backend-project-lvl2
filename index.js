@@ -27,8 +27,7 @@ const genDiff = (path1, path2) => {
         result[`+ ${key}`] = data2[key];
         break;
       default:
-        result[`- ${key}`] = 'sdkfdsf';
-        break;
+        throw new Error(`Unknown key - ${key}`);
     }
   }
 
