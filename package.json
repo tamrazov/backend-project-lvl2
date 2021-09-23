@@ -25,5 +25,10 @@
     "fs": "^0.0.1-security",
     "lodash.sortby": "^4.7.0",
     "lodash.uniq": "^4.5.0"
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-base": "14.2.1",
+    "eslint-plugin-import": "2.24.2"
   }
 }

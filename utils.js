@@ -1,8 +1,10 @@
-export const sortKeys = (object) => {
+const sortKeys = (object) => {
   // return Object.keys(object).sort().reduce((acc, key) => {
   //   acc[key] = object[key];
 
   //   return acc;
   // }, {});
-  console.log(Object.keys(object).sort())
+  console.log(Object.keys(object).sort());
 };
+
+export default sortKeys;

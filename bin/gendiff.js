@@ -7,11 +7,11 @@ const program = new Command();
 program
   .version('0.0.2')
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format [type]',  'output format')
+  .option('-f, --format [type]', 'output format')
   .action((name, options, command) => {
-    const [second, first, ...items] = options.rawArgs.reverse();
+    const [second, first] = options.rawArgs.reverse();
     const response = JSON.parse(genDiff(first, second));
-    console.log(response)
+    console.log(response);
   });
 
 program.parse(process.argv);

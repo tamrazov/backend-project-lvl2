@@ -1,17 +1,16 @@
 import { readFileSync } from 'fs';
 import uniq from 'lodash.uniq';
 import sortby from 'lodash.sortby';
-import { sortKeys } from './utils.js';
 
 const genDiff = (path1, path2) => {
-  const data1 = JSON.parse(readFileSync(path1, {encoding: 'utf-8'}));
-  const data2 = JSON.parse(readFileSync(path2, {encoding: 'utf-8'}));
+  const data1 = JSON.parse(readFileSync(path1, { encoding: 'utf-8' }));
+  const data2 = JSON.parse(readFileSync(path2, { encoding: 'utf-8' }));
   const keys = sortby(uniq([...Object.keys(data1), ...Object.keys(data2)]));
 
   const result = {};
 
   for (let key of keys) {
-    switch(true) {
+    switch (true) {
       case key in data1 && key in data2:
         if (data1[key] === data2[key]) {
           result[`  ${key}`] = data1[key];
@@ -32,6 +31,6 @@ const genDiff = (path1, path2) => {
   }
 
   return JSON.stringify(result);
-}
+};
 
 export default genDiff;
