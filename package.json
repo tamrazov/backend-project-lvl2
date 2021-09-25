@@ -4,7 +4,7 @@
   "description": "[![Actions Status](https://github.com/aleksandrtamrazov/backend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/aleksandrtamrazov/backend-project-lvl2/actions)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "type": "module",
   "bin": {
@@ -22,13 +22,15 @@
   "homepage": "https://github.com/aleksandrtamrazov/backend-project-lvl2#readme",
   "dependencies": {
     "commander": "8.2.0",
-    "fs": "^0.0.1-security",
-    "lodash.sortby": "^4.7.0",
-    "lodash.uniq": "^4.5.0"
+    "fs": "0.0.1-security",
+    "lodash.sortby": "4.7.0",
+    "lodash.uniq": "4.5.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.15.4",
     "eslint": "7.32.0",
     "eslint-config-airbnb-base": "14.2.1",
-    "eslint-plugin-import": "2.24.2"
+    "eslint-plugin-import": "2.24.2",
+    "jest": "27.2.1"
   }
 }
