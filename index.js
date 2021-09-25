@@ -9,7 +9,7 @@ const genDiff = (path1, path2) => {
 
   const result = {};
 
-  for (let key of keys) {
+  keys.forEach((key) => {
     switch (true) {
       case key in data1 && key in data2:
         if (data1[key] === data2[key]) {
@@ -28,7 +28,7 @@ const genDiff = (path1, path2) => {
       default:
         throw new Error(`Unknown key - ${key}`);
     }
-  }
+  });
 
   return JSON.stringify(result);
 };
