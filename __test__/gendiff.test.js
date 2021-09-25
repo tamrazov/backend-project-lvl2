@@ -1,12 +1,11 @@
-// import fs from 'fs';
-// import path from 'path';
-// import genDiff from '../index.js';
+import fs from 'fs';
+import path from 'path';
+import genDiff from '../index.js';
 
-// const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-// const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
 test('genDiff from fixtures', () => {
-  // const output = readFile('expected_file.json');
+  const output = fs.readFileSync(getFixturePath('expected_file.json'), {encoding: 'utf-8'});
 
-  expect(2 + 2).toBe(4);
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toBe(output);
 });
