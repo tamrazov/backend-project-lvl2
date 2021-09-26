@@ -30,7 +30,7 @@ const genDiff = (path1, path2) => {
     }
   });
 
-  return JSON.stringify(result);
+  return JSON.stringify(result, null, 2);
 };
 
 export default genDiff;
