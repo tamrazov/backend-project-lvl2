@@ -23,6 +23,7 @@
   "homepage": "https://github.com/aleksandrtamrazov/backend-project-lvl2#readme",
   "dependencies": {
     "commander": "8.2.0",
+    "js-yaml": "4.1.0",
     "lodash.sortby": "4.7.0",
     "lodash.uniq": "4.5.0"
   },
