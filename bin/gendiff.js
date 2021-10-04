@@ -10,7 +10,7 @@ program
   .option('-f, --format [type]', 'output format')
   .action((name, options) => {
     const [second, first] = options.rawArgs.reverse();
-    const response = JSON.parse(genDiff(first, second));
+    const response = genDiff(first, second);
     console.log(response);
   });
 
