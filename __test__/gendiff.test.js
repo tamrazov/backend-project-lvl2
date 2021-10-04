@@ -15,4 +15,3 @@ test('genDiff from yaml', () => {
 
   expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toBe(output);
 });
-
