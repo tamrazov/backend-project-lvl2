@@ -1,12 +1,8 @@
-import { readFileSync } from 'fs';
 import uniq from 'lodash.uniq';
 import sortby from 'lodash.sortby';
 
-const genDiff = (path1, path2) => {
-  const data1 = JSON.parse(readFileSync(path1, { encoding: 'utf-8' }));
-  const data2 = JSON.parse(readFileSync(path2, { encoding: 'utf-8' }));
+const genDiff = (data1, data2) => {
   const keys = sortby(uniq([...Object.keys(data1), ...Object.keys(data2)]));
-
   let result = '{\n';
 
   keys.forEach((key) => {
