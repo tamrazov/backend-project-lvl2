@@ -3,30 +3,34 @@ import sortby from 'lodash.sortby';
 
 const genDiff = (data1, data2) => {
   const keys = sortby(uniq([...Object.keys(data1), ...Object.keys(data2)]));
-  let result = '{\n';
+  let result = [];
 
   keys.forEach((key) => {
     switch (true) {
       case key in data1 && key in data2:
         if (data1[key] === data2[key]) {
-          result += `    ${key}: ${data1[key]}\n`;
+          result.push({key, type: 'unchanged', value: data1[key]});
         } else {
-          result += `  - ${key}: ${data1[key]}\n`;
-          result += `  + ${key}: ${data2[key]}\n`;
+          result.push({key, type: 'changed', value1: data1[key], value2: data2[key]})
         }
         break;
       case key in data1:
-        result += `  - ${key}: ${data1[key]}\n`;
+        result.push({key, type: 'deleted', value: data1[key]})
         break;
       case key in data2:
-        result += `  + ${key}: ${data2[key]}\n`;
+        result.push({key, type: 'added', value: data2[key]})
+        break;
+      case 'object':
+        const children = genDiff(data1[key], data2[key]);
+        result.push({key, type: 'children', children});
         break;
       default:
         throw new Error(`Unknown key - ${key}`);
     }
-  });
+  })
 
-  return `${result}}`;
+
+  return result;
 };
 
 export default genDiff;
