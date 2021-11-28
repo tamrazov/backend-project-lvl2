@@ -6,7 +6,7 @@ const parcer = (path, format = '.json') => {
 
   try {
     if (format === '.yaml' || format === '.yml') {
-      doc = yaml.load(readFileSync(path, 'utf8'));
+      doc = yaml.load(readFileSync(path, 'utf8')); // вынести это из этой логики чтение файла.
     } else {
       doc = JSON.parse(readFileSync(path, 'utf8'));
     }

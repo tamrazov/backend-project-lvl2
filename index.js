@@ -1,7 +1,7 @@
 import path from 'path';
-import gendiff from './gendiff.js';
-import parcer from './parcer.js';
-import stylish from './formatters/stylish.js';
+import gendiff from './src/gendiff.js';
+import parcer from './src/parcer.js';
+import stylish from './src/formatters/stylish.js';
 
 const main = (path1, path2, formatName) => {
   const data1 = parcer(path1, path.extname(path1));
