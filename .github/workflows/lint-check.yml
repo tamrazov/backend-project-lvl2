@@ -1,4 +1,4 @@
-name: test-check
+name: lint-check
 
 on:
   push:
@@ -15,6 +15,6 @@ jobs:
 
       - name: Run install
         run: make install
-      
-      - name: Run Test
-        run: make test
+
+      - name: Run linter
+        run: make lint

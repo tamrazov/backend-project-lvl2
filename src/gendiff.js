@@ -17,10 +17,11 @@ const genDiff = (data1, data2) => {
       case !(key in data2):
         result.push({ key, type: 'deleted', value: data1[key] });
         break;
-      case typeof data1[key] === 'object' && typeof data2[key] === 'object':
+      case typeof data1[key] === 'object' && typeof data2[key] === 'object': {
         const children = genDiff(data1[key], data2[key]);
         result.push({ key, type: 'children', children });
         break;
+      }
       case data1[key] === data2[key]:
         result.push({ key, type: 'unchanged', value: data1[key] });
         break;

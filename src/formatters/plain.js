@@ -10,7 +10,7 @@ const stringify = (value) => {
   return '[complex value]';
 };
 
-const plain = (tree) => {
+const getPlainFormat = (tree) => {
   const iter = (currentTree, path = '') => {
     const lines = currentTree.flatMap(({
       type, children, value, key,
@@ -36,4 +36,4 @@ const plain = (tree) => {
   return iter(tree);
 };
 
-export default plain;
+export default getPlainFormat;

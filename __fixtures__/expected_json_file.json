@@ -1,8 +1,30 @@
-{
-  "- follow": false,
-  "  host": "hexlet.io",
-  "- proxy": "123.234.53.22",
-  "- timeout": 50,
-  "+ timeout": 20,
-  "+ verbose": true
-}
+[
+  {
+    "key": "follow",
+    "type": "deleted",
+    "value": false
+  },
+  {
+    "key": "host",
+    "type": "unchanged",
+    "value": "hexlet.io"
+  },
+  {
+    "key": "proxy",
+    "type": "deleted",
+    "value": "123.234.53.22"
+  },
+  {
+    "key": "timeout",
+    "type": "changed",
+    "value": {
+      "value1": 50,
+      "value2": 20
+    }
+  },
+  {
+    "key": "verbose",
+    "type": "added",
+    "value": true
+  }
+]
