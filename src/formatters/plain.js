@@ -1,5 +1,7 @@
+import isobject from 'lodash.isobject';
+
 const stringify = (value) => {
-  if (typeof value !== 'object' || value === null) {
+  if (!isobject(value)) {
     if (typeof value === 'string') {
       return `'${value}'`;
     }

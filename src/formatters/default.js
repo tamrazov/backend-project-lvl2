@@ -1,10 +1,12 @@
+import isobject from 'lodash.isobject';
+
 const replacer = ' ';
 const spacesCount = 4;
 const signSize = 2;
 
 const stringify = (value, startDepth = 1) => {
   const iter = (currentValue, depth) => {
-    if (typeof currentValue !== 'object' || currentValue === null) {
+    if (!isobject(currentValue)) {
       return `${currentValue}`;
     }
 
