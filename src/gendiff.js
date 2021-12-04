@@ -8,30 +8,23 @@ const genDiff = (data1, data2) => {
   }
 
   const keys = sortby(uniq([...Object.keys(data1), ...Object.keys(data2)]));
-  const result = [];
 
-  keys.forEach((key) => {
+  return keys.map((key) => {
     switch (true) {
       case !(key in data1):
-        result.push({ key, type: 'added', value: data2[key] });
-        break;
+        return { key, type: 'added', value: data2[key] };
       case !(key in data2):
-        result.push({ key, type: 'deleted', value: data1[key] });
-        break;
+        return { key, type: 'deleted', value: data1[key] };
       case isobject(data1[key]) && isobject(data2[key]): {
         const children = genDiff(data1[key], data2[key]);
-        result.push({ key, type: 'children', children });
-        break;
+        return { key, type: 'children', children };
       }
       case data1[key] === data2[key]:
-        result.push({ key, type: 'unchanged', value: data1[key] });
-        break;
+        return { key, type: 'unchanged', value: data1[key] };
       default:
-        result.push({ key, type: 'changed', value: { value1: data1[key], value2: data2[key] } });
+        return { key, type: 'changed', value: { value1: data1[key], value2: data2[key] } };
     }
   });
-
-  return result;
 };
 
 export default genDiff;
