@@ -7,7 +7,7 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), { encod
 
 test('genDiff from json', () => {
   const output = readFile('expected_file.txt');
-  const res = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'));
+  const res = genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'), 'stylish');
 
   expect(res).toBe(output);
 });
@@ -15,13 +15,13 @@ test('genDiff from json', () => {
 test('genDiff from yaml', () => {
   const output = readFile('expected_file.txt');
 
-  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'))).toBe(output);
+  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml'), 'stylish')).toBe(output);
 });
 
 test('recursive genDiff', () => {
   const output = readFile('expected_recursive_file.txt');
 
-  expect(genDiff(getFixturePath('file3.json'), getFixturePath('file4.json'))).toBe(output);
+  expect(genDiff(getFixturePath('file3.json'), getFixturePath('file4.json'), 'stylish')).toBe(output);
 });
 
 test('plain genDiff', () => {

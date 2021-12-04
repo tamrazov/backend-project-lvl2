@@ -1,6 +1,6 @@
 import getPlainFormat from './plain.js';
 import getJsonFormat from './json.js';
-import getDefaultFormat from './default.js';
+import getStylishFormat from './stylish.js';
 
 const stylize = (tree, formatName) => {
   switch (formatName) {
@@ -8,8 +8,10 @@ const stylize = (tree, formatName) => {
       return getPlainFormat(tree);
     case 'json':
       return getJsonFormat(tree);
+    case 'stylish':
+      return getStylishFormat(tree);
     default:
-      return getDefaultFormat(tree);
+      throw new Error(`Don't know formatName: ${formatName}`);
   }
 };
 

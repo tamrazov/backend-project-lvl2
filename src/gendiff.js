@@ -1,5 +1,6 @@
 import uniq from 'lodash.uniq';
 import sortby from 'lodash.sortby';
+import isobject from 'lodash.isobject';
 
 const genDiff = (data1, data2) => {
   if (!data1 || !data2) {
@@ -17,7 +18,7 @@ const genDiff = (data1, data2) => {
       case !(key in data2):
         result.push({ key, type: 'deleted', value: data1[key] });
         break;
-      case typeof data1[key] === 'object' && typeof data2[key] === 'object': {
+      case isobject(data1[key]) && isobject(data2[key]): {
         const children = genDiff(data1[key], data2[key]);
         result.push({ key, type: 'children', children });
         break;

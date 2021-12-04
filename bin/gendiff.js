@@ -7,10 +7,10 @@ const program = new Command();
 program
   .version('0.0.2')
   .description('Compares two configuration files and shows a difference.')
-  .option('-f, --format [type]', 'output format')
+  .option('-f, --format [type]', 'output format', 'stylish')
   .arguments('<first_file> <second_file>')
   .action((firstFile, secondFile) => {
-    const response = getResult(firstFile, secondFile);
+    const response = getResult(firstFile, secondFile, program.opts().format);
     console.log(response);
   });
 

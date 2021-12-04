@@ -27,7 +27,7 @@ const stringify = (value, startDepth = 1) => {
   return iter(value, startDepth);
 };
 
-const getDefaultFormat = (tree) => {
+const getStylishFormat = (tree) => {
   const iter = (currentTree, depth) => {
     const indentSize = depth * spacesCount - signSize;
     const currentIndent = replacer.repeat(indentSize);
@@ -66,4 +66,4 @@ const getDefaultFormat = (tree) => {
   return iter(tree, 1);
 };
 
-export default getDefaultFormat;
+export default getStylishFormat;
