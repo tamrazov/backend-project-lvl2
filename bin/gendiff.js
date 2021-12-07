@@ -10,8 +10,8 @@ program
   .option('-f, --format [type]', 'output format', 'stylish')
   .arguments('<first_file> <second_file>')
   .action((firstFile, secondFile) => {
-    const response = getResult(firstFile, secondFile, program.opts().format);
-    console.log(response);
+    const result = getResult(firstFile, secondFile, program.opts().format);
+    console.log(result);
   });
 
 program.parse(process.argv);
