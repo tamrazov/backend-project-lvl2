@@ -1,10 +1,6 @@
 import yaml from 'js-yaml';
 
 const parse = (file, format) => {
-  if (format === '.yaml' || format === '.yml') {
-    return yaml.load(file);
-  }
-
   switch (true) {
     case format === '.yaml' || format === '.yml':
       return yaml.load(file);
